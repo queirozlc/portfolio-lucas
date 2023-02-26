@@ -20,6 +20,7 @@ specifiers:
   eslint-plugin-react: ^7.32.2
   next: 13.1.6
   plop: ^3.1.2
+  polished: ^4.2.2
   postcss: ^8.4.21
   prettier: ^2.8.4
   react: 18.2.0
@@ -35,6 +36,7 @@ dependencies:
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.10
   next: 13.1.6_biqbaboplfbrettd7655fr4n2y
+  polished: 4.2.2
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   styled-components: 5.3.6_biqbaboplfbrettd7655fr4n2y
@@ -2835,6 +2837,13 @@ packages:
       ora: 6.1.2
       v8flags: 4.0.0
     dev: true
+
+  /polished/4.2.2:
+    resolution: {integrity: sha512-Sz2Lkdxz6F2Pgnpi9U5Ng/WdWAUZxmHrNPoVlm3aAemxoy2Qy7LGjQg4uf8qKelDAUW94F4np3iH2YPf2qefcQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      '@babel/runtime': 7.21.0
+    dev: false
 
   /postcss-import/14.1.0_postcss@8.4.21:
     resolution: {integrity: sha512-flwI+Vgm4SElObFVPpTIT7SU7R3qk2L7PyduMcokiaVKuWv9d/U+Gm/QAd8NDLuykTWTkcrjOeD2Pp1rMeBTGw==}

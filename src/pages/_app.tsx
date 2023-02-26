@@ -1,7 +1,7 @@
-import type { AppProps } from 'next/app'
 import GlobalStyle from '@/styles/global'
-import { ThemeProvider } from 'styled-components'
 import theme from '@/styles/themes/theme'
+import type { AppProps } from 'next/app'
+import { ThemeProvider } from 'styled-components'
 import 'tailwindcss/tailwind.css'
 
 export default function App({ Component, pageProps }: AppProps) {
