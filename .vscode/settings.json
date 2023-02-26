@@ -4,7 +4,8 @@
     "defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
   },
   "scss.validate": false,
   "editor.quickSuggestions": {
