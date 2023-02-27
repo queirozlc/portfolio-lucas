@@ -9,8 +9,9 @@ export const Container = styled.section`
     gap-8
     items-center
     justify-center
+    mt-32
     max-w-screen-md:flex-col
-    h-screen
+    max-w-screen-md:gap-2
   `}
 
   > div {
@@ -25,7 +26,9 @@ export const TextContainer = styled.section`
     mb-8
     w-full
     text-center
-    max-w-screen-md:text-left
+    max-w-screen-lg:mb-2
+    max-w-screen-sm:text-left
+    max-w-screen-sm:mb-4
   `}
 
   > h1 {
@@ -33,9 +36,11 @@ export const TextContainer = styled.section`
       text-9xl
       max-w-screen-2xl:text-[5rem]
       max-w-screen-lg:text-5xl
+      max-w-screen-xs:text-4xl
       font-bold
       text-primary
       mb-10
+      max-w-screen-lg:mb-1
     `}
   }
 
@@ -44,6 +49,7 @@ export const TextContainer = styled.section`
       text-5xl
       max-w-screen-2xl:text-[2rem]
       max-w-screen-lg:text-2xl
+      max-w-screen-xs:text-xl
       text-secondary
       font-medium
       font-secondary
