@@ -9,8 +9,8 @@ export const Container = styled.section`
     gap-8
     items-center
     justify-center
-    mt-[5rem]
     max-w-screen-md:flex-col
+    h-screen
   `}
 
   > div {
