@@ -18,6 +18,7 @@ export const Container = styled.section`
       max-w-screen-md:gap-12
       max-w-screen-md:flex-wrap
       max-w-screen-md:mt-20
+      max-w-screen-sm:flex-col
     `}
   }
 `
