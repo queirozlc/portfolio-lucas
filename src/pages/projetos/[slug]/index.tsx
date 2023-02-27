@@ -1,34 +1,76 @@
+import { ProjectApiType } from '@/@types/ProjetoItemType'
 import BannerProjeto from '@/components/BannerProjeto'
 import Header from '@/components/Header'
+import LoadingScreen from '@/components/LoadingScreen'
+import { getPrismicClient } from '@/services/prismic'
 import { ProjetoSlugContainer } from '@/styles/ProjetosStyles'
+import Prismic from '@prismicio/client'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
+import { ParsedUrlQuery } from 'querystring'
 
-export default function ProjetoSlug() {
+export default function ProjetoSlug({ project }: { project: ProjectApiType }) {
+  const router = useRouter()
+
+  if (router.isFallback) {
+    return <LoadingScreen />
+  }
+
   return (
     <ProjetoSlugContainer>
       <Header />
       <BannerProjeto
-        title="Projeto 1"
-        type="Tipo 1"
-        image="https://images.prismic.io/portfolioaula/be8779ed-c40f-42f2-bd73-e2065676a687_nuprint1.png?auto=compress, format"
+        title={project.title}
+        type={project.type}
+        image={project.thumbnail}
       />
 
       <main>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. A,
-          voluptates sunt. Eos harum assumenda fugiat pariatur facere.
-          Accusantium, enim, qui, consequatur culpa quas alias velit consectetur
-          deserunt dignissimos ducimus accusamus! Perspiciatis, dolorem quas
-          explicabo dolore fuga maxime dolor optio, sed rerum autem, facilis
-          aperiam? Dolorum, porro. Tempore nulla odit, molestiae illum deleniti
-          veritatis error a rerum nobis. Dolorem adipisci fuga aspernatur iure
-          quisquam fugiat aperiam. Laborum corporis hic explicabo ad rerum esse
-          totam voluptas tempore. Recusandae fugiat porro molestiae distinctio.
-        </p>
+        <p>{project.description}</p>
 
         <button type="button">
-          <a href="">Ver projeto</a>
+          <a href={project.link} target="_blank">
+            Ver projeto
+          </a>
         </button>
       </main>
     </ProjetoSlugContainer>
   )
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getPrismicClient()
+  const projectsResponse = await prismic.query([
+    Prismic.predicates.at('document.type', 'projeto')
+  ])
+
+  const paths = projectsResponse.results.map((projeto) => ({
+    params: { slug: projeto.uid }
+  }))
+
+  return {
+    paths,
+    fallback: true
+  }
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const prismic = getPrismicClient()
+  const { slug } = context.params as ParsedUrlQuery
+
+  const projectsResponse = await prismic.getByUID('projeto', String(slug), {})
+  const project = {
+    slug: projectsResponse.uid,
+    title: projectsResponse.data.title,
+    type: projectsResponse.data.type,
+    description: projectsResponse.data.description,
+    link: projectsResponse.data.link.url,
+    thumbnail: projectsResponse.data.thumbnail.url
+  }
+  return {
+    props: {
+      project
+    },
+    revalidate: 60 * 60 * 24 // 24 hours
+  }
 }
