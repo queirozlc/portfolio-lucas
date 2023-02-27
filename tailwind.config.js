@@ -18,7 +18,8 @@ module.exports = {
       screens: {
         'max-w-screen-2xl': { max: '1450px' },
         'max-w-screen-lg': { max: '1000px' },
-        'max-w-screen-md': { max: '700px' }
+        'max-w-screen-md': { max: '700px' },
+        'max-w-screen-sm': { max: '500px' }
       },
       fontFamily: {
         primary: ['"Montserrat"', 'sans-serif'],
