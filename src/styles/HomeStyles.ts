@@ -14,6 +14,7 @@ export const HomeContainer = styled.div`
     ${tw`
       flex
       gap-[8rem]
+      flex-col
     `}
   }
 `
