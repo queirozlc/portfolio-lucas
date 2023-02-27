@@ -14,6 +14,15 @@ module.exports = {
         border: '#313958',
         inputBackground: '#1E253E',
         error: '#d45d5d'
+      },
+      screens: {
+        'max-w-screen-2xl': { max: '1450px' },
+        'max-w-screen-lg': { max: '1000px' },
+        'max-w-screen-md': { max: '700px' }
+      },
+      fontFamily: {
+        primary: ['"Montserrat"', 'sans-serif'],
+        secondary: ['"Jetbrains Mono"', 'monospace']
       }
     }
   },
