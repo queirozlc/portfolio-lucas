@@ -1,20 +1,14 @@
+import { ProjetoItemType } from '@/@types/ProjetoItemType'
 import Link from 'next/link'
 import { AiOutlineRightCircle } from 'react-icons/ai'
 import { ProjetoContainer } from './styles'
-
-interface ProjetoItemProps {
-  title: string
-  type: string
-  slug: string
-  image: string
-}
 
 export default function ProjetoItem({
   title,
   type,
   slug,
   image
-}: ProjetoItemProps) {
+}: ProjetoItemType) {
   return (
     <ProjetoContainer image={image}>
       <section>
