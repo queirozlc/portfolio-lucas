@@ -7,7 +7,7 @@ export default function HomeHero() {
     words: [
       'Hello World !',
       '<Lucas Queiroz/>',
-      'Fullstack Developer Jr',
+      'Fullstack Developer',
       'Spring Framework',
       'Next JS',
       'TypeScript'
