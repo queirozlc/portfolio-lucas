@@ -10,7 +10,10 @@ import Projetos from '@/components/Projetos'
 import { getPrismicClient } from '@/services/prismic'
 import { HomeContainer } from '@/styles/HomeStyles'
 import Prismic from '@prismicio/client'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 import { GetStaticProps } from 'next'
+import { useEffect } from 'react'
 
 interface HomeProps {
   projects: ProjectApiType[]
@@ -18,6 +21,10 @@ interface HomeProps {
 }
 
 export default function Home({ projects, experiences }: HomeProps) {
+  useEffect(() => {
+    Aos.init({ duration: 1500 })
+  }, [])
+
   return (
     <HomeContainer>
       <Header />
@@ -45,8 +52,6 @@ export const getStaticProps: GetStaticProps = async () => {
     [Prismic.Predicates.at('document.type', 'experience_and_studies')],
     { orderings: '[document.first_publication_date desc]' }
   )
-
-  console.log(experiencesResponse.results)
 
   const projects = projectsResponse.results.map((projeto) => ({
     slug: projeto.uid,

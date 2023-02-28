@@ -8,7 +8,7 @@ export default function ExperienciaCard({
   link
 }: ExperienceType) {
   return (
-    <ItemContainer>
+    <ItemContainer data-aos="fade-up">
       <div>
         <h1>{yearInterval}</h1>
         <h2>{title}</h2>

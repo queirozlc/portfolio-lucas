@@ -18,8 +18,7 @@ export default function HomeHero() {
   })
 
   return (
-    <Container>
-      {/* <div> */}
+    <Container data-aos="fade-up">
       <TextContainer>
         <h1>Olá</h1>
         <h2>
@@ -51,7 +50,6 @@ export default function HomeHero() {
           {'\u007D'}
         </CodeItem>
       </InfosContainer>
-      {/* </div> */}
     </Container>
   )
 }

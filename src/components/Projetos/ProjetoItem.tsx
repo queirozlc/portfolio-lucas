@@ -10,7 +10,7 @@ export default function ProjetoItem({
   image
 }: ProjetoItemType) {
   return (
-    <ProjetoContainer image={image}>
+    <ProjetoContainer image={image} data-aos="fade-up">
       <section>
         <div className="overlay" />
         <div className="text">
