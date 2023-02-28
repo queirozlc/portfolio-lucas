@@ -4,7 +4,7 @@ import tw from 'twin.macro'
 
 export const Container = styled.section`
   ${tw`
-
+    overflow-hidden
   `}
 `
 
