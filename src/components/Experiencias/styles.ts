@@ -36,9 +36,11 @@ export const ItemContainer = styled.div`
       justify-start
       transition
       duration-500
+      max-w-[19rem]
       max-w-screen-lg:pt-6
       max-w-screen-md:h-auto
       max-w-screen-md:p-8
+      max-w-screen-md:max-w-full
     `}
     background: ${({ theme }) => theme.gradient};
 
