@@ -1,3 +1,4 @@
+import { ExperienceType } from '@/@types/ExperienceType'
 import { ProjectApiType } from '@/@types/ProjetoItemType'
 import Conhecimentos from '@/components/Conhecimentos'
 import Experiencias from '@/components/Experiencias'
@@ -13,16 +14,17 @@ import { GetStaticProps } from 'next'
 
 interface HomeProps {
   projects: ProjectApiType[]
+  experiences: ExperienceType[]
 }
 
-export default function Home({ projects }: HomeProps) {
+export default function Home({ projects, experiences }: HomeProps) {
   return (
     <HomeContainer>
       <Header />
 
       <main className="container">
         <HomeHero />
-        <Experiencias />
+        <Experiencias experiences={experiences} />
         <Projetos projects={projects} />
         <Conhecimentos />
         <FormContato />
@@ -39,6 +41,13 @@ export const getStaticProps: GetStaticProps = async () => {
     [Prismic.Predicates.at('document.type', 'projeto')],
     { orderings: '[document.first_publication_date desc]' }
   )
+  const experiencesResponse = await prismic.query(
+    [Prismic.Predicates.at('document.type', 'experience_and_studies')],
+    { orderings: '[document.first_publication_date desc]' }
+  )
+
+  console.log(experiencesResponse.results)
+
   const projects = projectsResponse.results.map((projeto) => ({
     slug: projeto.uid,
     title: projeto.data.title,
@@ -48,9 +57,18 @@ export const getStaticProps: GetStaticProps = async () => {
     thumbnail: projeto.data.thumbnail.url
   }))
 
+  const experiences = experiencesResponse.results.map((experience) => ({
+    slug: experience.uid,
+    title: experience.data.title,
+    yearInterval: experience.data.year_interval,
+    description: experience.data.description,
+    link: experience.data.link ? experience.data.link.url : null
+  }))
+
   return {
     props: {
-      projects
+      projects,
+      experiences
     },
     revalidate: 60 * 60 * 24 // 24 hours
   }

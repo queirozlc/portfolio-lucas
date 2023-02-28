@@ -1,12 +1,19 @@
+import { ExperienceType } from '@/@types/ExperienceType'
 import { ItemContainer } from '../styles'
 
-export default function ExperienciaCard() {
+export default function ExperienciaCard({
+  yearInterval,
+  description,
+  title,
+  link
+}: ExperienceType) {
   return (
     <ItemContainer>
       <div>
-        <h1>2021</h1>
-        <h2>Front-end Developer</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam</p>
+        <h1>{yearInterval}</h1>
+        <h2>{title}</h2>
+        <p>{description}</p>
+        {link && <a href={link}>Ver mais</a>}
       </div>
     </ItemContainer>
   )

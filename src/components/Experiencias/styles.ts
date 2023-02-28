@@ -25,22 +25,17 @@ export const Container = styled.section`
 `
 
 export const ItemContainer = styled.div`
-  ${tw`
-
-  `}
-
   > div {
     ${tw`
       p-4
       pt-10
-      h-[20rem]
+      h-fit
       flex
       flex-col
       items-start
       justify-start
       transition
       duration-500
-      max-w-screen-lg:h-[17rem]
       max-w-screen-lg:pt-6
       max-w-screen-md:h-auto
       max-w-screen-md:p-8
