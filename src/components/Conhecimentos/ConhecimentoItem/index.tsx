@@ -8,7 +8,7 @@ interface ConhecimentoItemProps {
 
 export function ConhecimentoItem({ title, icon }: ConhecimentoItemProps) {
   return (
-    <ConhecimentoItemContainer>
+    <ConhecimentoItemContainer data-aos="zoom-in-up">
       <p>{title}</p>
       {icon}
     </ConhecimentoItemContainer>

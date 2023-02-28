@@ -78,12 +78,10 @@ export const CodeItem = styled.pre`
     max-w-screen-2xl:text-[0.8rem]
     max-w-screen-lg:w-full
     self-start
-    transition
-    duration-1000
-    ease-in-out
     hover:brightness-[1.2]
   `}
   background: ${({ theme }) => theme.gradient};
+  transition: all 1s ease-in-out !important;
 
   &:last-child {
     ${tw`

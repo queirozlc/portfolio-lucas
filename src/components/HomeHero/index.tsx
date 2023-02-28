@@ -27,7 +27,7 @@ export default function HomeHero() {
         </h2>
       </TextContainer>
       <InfosContainer>
-        <CodeItem>
+        <CodeItem data-aos="zoom-in">
           <span className="comment">//Minha apresentação</span>
           <span className="purple">Infos</span> {'\u007B'}
           <div>
@@ -39,7 +39,7 @@ export default function HomeHero() {
           {'\u007D'}
         </CodeItem>
 
-        <CodeItem>
+        <CodeItem data-aos="zoom-in">
           <span className="purple">Cargo</span> {'\u007B'}
           <div>
             Função: <span className="blue">'Dev Fullstack.',</span>
