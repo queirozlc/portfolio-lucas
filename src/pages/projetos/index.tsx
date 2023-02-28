@@ -5,6 +5,7 @@ import { getPrismicClient } from '@/services/prismic'
 import { ProjetosContainer } from '@/styles/ProjetosStyles'
 import Prismic from '@prismicio/client'
 import { GetStaticProps } from 'next'
+import Head from 'next/head'
 
 interface ProjetosProps {
   projects: ProjectApiType[]
@@ -13,6 +14,22 @@ interface ProjetosProps {
 export default function Projetos({ projects }: ProjetosProps) {
   return (
     <ProjetosContainer>
+      <Head>
+        <title>Projetos | Meu portfólio</title>
+        <meta
+          name="description"
+          content="Nesta página mostro alguns projetos desenvolvidos por mim, e alguns que ainda estão em desenvolvimento!"
+        />
+        <meta property="og:image" content="/ogimage.png" />
+        <meta property="og:image:secure_url" content="/ogimage.png" />
+        <meta name="twitter:image" content="/ogimage.png" />
+        <meta name="twitter:image:src" content="/ogimage.png" />
+        <meta
+          property="og:description"
+          content="Nesta página mostro alguns projetos desenvolvidos por mim, e alguns que ainda estão em desenvolvimento!"
+        />
+      </Head>
+
       <Header />
 
       <main className="container">

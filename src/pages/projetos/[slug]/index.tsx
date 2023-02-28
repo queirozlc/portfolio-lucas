@@ -6,6 +6,7 @@ import { getPrismicClient } from '@/services/prismic'
 import { ProjetoSlugContainer } from '@/styles/ProjetosStyles'
 import Prismic from '@prismicio/client'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -18,6 +19,16 @@ export default function ProjetoSlug({ project }: { project: ProjectApiType }) {
 
   return (
     <ProjetoSlugContainer>
+      <Head>
+        <title>{project.title} | Meu portfólio</title>
+        <meta name="description" content={project.description} />
+        <meta property="og:image" content={project.thumbnail} />
+        <meta property="og:image:secure_url" content={project.thumbnail} />
+        <meta name="twitter:image" content={project.thumbnail} />
+        <meta name="twitter:image:src" content={project.thumbnail} />
+        <meta property="og:description" content={project.description} />
+      </Head>
+
       <Header />
       <BannerProjeto
         title={project.title}
