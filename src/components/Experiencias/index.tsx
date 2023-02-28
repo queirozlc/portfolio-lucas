@@ -11,7 +11,6 @@ interface ExperienciasProps {
 }
 
 export default function Experiencias({ experiences }: ExperienciasProps) {
-  console.log(experiences)
   return (
     <Container>
       <SectionTitle title="Experiências" description="E estudos" />
